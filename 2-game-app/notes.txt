@@ -1,0 +1,56 @@
+expo install expo-linear-gradient
+import in App.js
+
+import ImageBackground, SafeAreaView, Alert from react-native
+
+import {icon} from '@expo/vector-icons'
+
+Custom fonts:
+expo install expo-font
+expo install expo-app-loading
+
+app.js:
+import { useFonts } from 'expo-font' (add fontFamily to the stylesheet)
+import AppLoading from 'expo-app-loading'; (render AppLoading until fonts have been loaded)
+
+**Manage device ui dimensions 
+import { Dimensions } from 'react-native';
+const deviceWidth = Dimensions.get('window').width;
+
+const styles = StyleSheet.create({
+  container: {
+    borderWidth: 4
+    padding: deviceWidth < 380 ? 12 : 24,
+    margin: deviceWidth < 380 ? 12 : 24
+  }})
+
+/// For different orientations
+import { useWindowDimensions} from 'react-native';
+const {width, height} = useWindowDimensions()
+ const marginTopDistance = height < 380 ? 30 : 100;
+
+<View style={[styles.rootContainer, {marginTop: marginTopDistance}]}>
+
+Use KeyboardAvoidingView and ScrollView to manage screen content
+
+//Apply different code to different OS
+
+import {Platform} from 'react-native';
+const styles = StyleSheet.create({
+    title: {
+        borderWidth: Platform.OS === 'android' ? 2 : 0,
+        or
+        borderWidth: Platform.select({ios: 0, android: 2}),
+    }
+})
+
+or
+create different file endings, example:
+
+Title.android.js
+Title.ios.js
+
+colors.android.js
+colors.ios.js
+
+and import without extensions

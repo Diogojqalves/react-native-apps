@@ -1,0 +1,5 @@
+Text Component (layout text)
+View Component (layout other components)
+
+Style (inline or StyleSheet Object, no css)
+inline ex: style={{margin: 16, borderWidth: 2, borderColor: "orange", padding: 16}}
